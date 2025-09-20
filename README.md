@@ -3,9 +3,9 @@
 ## 📌 Overview
 This repository documents the end-to-end chip design flow, from testing the target application to deploying real-world silicon.
 
-- 📘 Highlights the major steps, expected outcomes, and key constraints for tape-out readiness.
-- 🛠️ Uses open-source EDA tools to cover the complete flow from RTL to GDSII.
-- 📝 Below are the topics covering my week-wise progress and learnings.
+-  Highlights the major steps, expected outcomes, and key constraints for tape-out readiness.
+-  Uses open-source EDA tools to cover the complete flow from RTL to GDSII.
+-  Below are the topics covering my week-wise progress and learnings.
 
 ---
 
