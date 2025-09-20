@@ -126,6 +126,11 @@ $ make
 $ sudo make install  
 
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
 
 <div align="center">✅ Yosys Successfully Installed</div>
 
@@ -136,6 +141,12 @@ $ sudo make install
 $ sudo apt-get update  
 $ sudo apt-get install iverilog  
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
+
 <div align="center">✅ Icarus Verilog Successfully Installed</div>
 
 #### ✅ GTKWave – Waveform Viewer
@@ -146,6 +157,11 @@ $ sudo apt-get install iverilog
 $ sudo apt-get update  
 $ sudo apt install gtkwave  
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
 
 <div align="center">✅ GTKWave Successfully Installed</div>
 
@@ -166,6 +182,12 @@ $ ../configure --with-x --with-readline=yes --disable-debug
 $ make
 $ sudo make install
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
+
 <div align="center">✅ Ngspice Successfully Installed</div>
 
 #### ✅ Magic – VLSI Layout Tool
@@ -183,6 +205,12 @@ $ ./configure
 $ make
 $ sudo make install
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
+
 <div align="center">✅ Magic Successfully Installed</div>
 
 #### ✅ OpenLANE – End-to-End Physical Design Flow (with Docker)
@@ -219,6 +247,11 @@ sudo reboot
 
 docker run hello-world
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
 
 <div align="center">
 ✅ Docker is installed and running successfully!
@@ -234,6 +267,12 @@ python3 -m pip --version
 make --version
 python3 -m venv -h
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
+
 <div align="center">
 ✅ Version Check Completed
 </div>
@@ -247,6 +286,12 @@ cd OpenLane
 make
 make test
 ```
+### 📷 Installation Image 
+
+<div align="center">
+  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+</div>
+
 <div align="center">✅ OpenLANE Successfully Installed</div>
 
 ## 📝 Submission Overview
@@ -265,5 +310,5 @@ This repository serves as the official **Week 0 submission** for the Digital VLS
 
 ### 🔗 Links
 
-- **Week 0 Repo:** [Add your Week 0 repo link here]()  
+- **Week 0 Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200.md]()  
 - **Main Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout.git]()
