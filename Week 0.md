@@ -310,5 +310,5 @@ This repository serves as the official **Week 0 submission** for the Digital VLS
 
 ### 🔗 Links
 
-- **Week 0 Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200.md]()  
+- **Week 0 Repo:** [Week 0.md]()  
 - **Main Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout.git]()
