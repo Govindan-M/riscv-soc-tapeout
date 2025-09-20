@@ -13,7 +13,7 @@ This repository documents the end-to-end chip design flow, from testing the targ
 
 |   Week   |       Topics Covered        |   Status   |
 |:-------:|:---------------------------:|:---------:|
-| Week 0  | Workflow of SoC & Tool Setup | ✅ Done   |
+| [Week 0](Week0/Week0.md)  | Workflow of SoC & Tool Setup | ✅ Done   |
 
 ---
 
@@ -25,18 +25,16 @@ This repository documents the end-to-end chip design flow, from testing the targ
 | Yosys          | ⚡ RTL Synthesis                  | ✅ Installed |
 | Icarus Verilog | 🧪 Simulation & Testbench         | ✅ Installed |
 | GTKWave        | 📊 Waveform Viewer                | ✅ Installed |
-| OpenSTA        | ⏱️ Static Timing Analysis          | ✅ Installed |
 | Ngspice        | 🔬 Circuit Simulation             | ✅ Installed |
 | Magic          | 🏗️ Layout & DRC                   | ✅ Installed |
 | OpenLane       | 🚀 Complete RTL → GDSII Flow      | ✅ Installed |
 
 ---
-
 # 🙏 Acknowledgment
-I am sincerely thankful to all those who made this RISC-V SoC Tapeout Program possible.
 
-## 🏆 Program Leadership & Support
-- **Kunal Ghosh** and the **VLSI System Design (VSD) Team** for the opportunity and guidance throughout the program.
+- I am sincerely thankful to everyone who made this **RISC-V SoC Tapeout Program** possible.  
+- Special thanks to **Kunal Ghosh** and the **VLSI System Design (VSD) Team** for their continuous guidance and support throughout the program.
+
 
 ## 🌐 Organizational Support
 - **RISC-V International** and **Efabless** for providing the platform and resources.  
