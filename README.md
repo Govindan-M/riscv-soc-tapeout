@@ -13,7 +13,7 @@ This repository documents the end-to-end chip design flow, from testing the targ
 
 |   Week   |       Topics Covered        |   Status   |
 |:-------:|:---------------------------:|:---------:|
-| [Week 0](Week0/Week0.md)  | Workflow of SoC & Tool Setup | ✅ Done   |
+|[Week 0](https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200.md)  | Workflow of SoC & Tool Setup | ✅ Done   |
 
 ---
 
