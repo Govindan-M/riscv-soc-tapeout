@@ -129,7 +129,7 @@ $ sudo make install
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="Week 0/yosys_installed.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="https://raw.githubusercontent.com/Govindan-M/riscv-soc-tapeout/main/Week%200/yosys_installed.jpeg" width="600"/>
 </div>
 
 <div align="center">✅ Yosys Successfully Installed</div>
@@ -144,7 +144,7 @@ $ sudo apt-get install iverilog
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="Week 0/iverilog_installed.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="https://raw.githubusercontent.com/Govindan-M/riscv-soc-tapeout/main/Week%200/iverilog_installed.jpeg" width="600"/>
 </div>
 
 <div align="center">✅ Icarus Verilog Successfully Installed</div>
@@ -158,10 +158,9 @@ $ sudo apt-get update
 $ sudo apt install gtkwave  
 ```
 ### 📷 Installation Image 
-
 <div align="center">
-  <img src="Week 0/gtkwave01_installed.jpeg" alt="Tool snapshot" width="600"/>
-  <img src="Week 0/gtkwave02_installed.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="https://raw.githubusercontent.com/Govindan-M/riscv-soc-tapeout/main/Week%200/gtkwave01_installed.jpeg" width="600"/>
+  <img src="https://raw.githubusercontent.com/Govindan-M/riscv-soc-tapeout/main/Week%200/gtkwave02_installed.jpeg" width="600"/>
 </div>
 
 <div align="center">✅ GTKWave Successfully Installed</div>
