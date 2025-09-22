@@ -129,7 +129,7 @@ $ sudo make install
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="yosys.img.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="Week 0/yosys_installed.jpeg" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">✅ Yosys Successfully Installed</div>
@@ -144,7 +144,7 @@ $ sudo apt-get install iverilog
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="iverilog.img.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="Week 0/iverilog_installed.jpeg" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">✅ Icarus Verilog Successfully Installed</div>
@@ -160,8 +160,8 @@ $ sudo apt install gtkwave
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="01.GTKwave.img.jpeg" alt="Tool snapshot" width="600"/>
-  <img src="02.GTKwave.img.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="Week 0/gtkwave01_installed.jpeg" alt="Tool snapshot" width="600"/>
+  <img src="Week 0/gtkwave02_installed.jpeg" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">✅ GTKWave Successfully Installed</div>
@@ -311,5 +311,5 @@ This repository serves as the official **Week 0 submission** for the Digital VLS
 
 ### 🔗 Links
 
-- **Week 0 Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200.md]()  
+- **Week 0 Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%200]()  
 - **Main Repo:** [https://github.com/Govindan-M/riscv-soc-tapeout.git]()
