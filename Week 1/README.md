@@ -4,7 +4,7 @@
 
 #### This week covers Basic RTL design, synthesis concepts, Optimizations and GLS.
 
-### 👉 **Day 1** - Introduction to Verilog RTL design and Synthesis
+### 👉 **Day 1](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%201) ** - Introduction to Verilog RTL design and Synthesis
 
 ### 👉 **Day 2** - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
@@ -26,7 +26,7 @@ This repository serves as the official **Week 1 submission** for the Digital VLS
 
 
 ### 🔗 Links
-- **Day 1:**
+- **Day 1:**https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%201
 - **Day 2:**
 - **Day 3:**
 - **Day 4:**
