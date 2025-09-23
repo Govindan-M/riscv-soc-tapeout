@@ -238,14 +238,31 @@ When viewing waveforms in GTKWave, here are **5 essential keys/functions** you s
 ## ⚙️ **Synthesizer**
 Tool used for converting RTL to netlist
 ## **Yosys Setup**
+### 📂 .lib (Liberty File)
+- A **collection of logical modules** (standard cells).  
+- Includes basic logic gates like **AND, OR, NOT, etc.**  
+- Provides **different flavors (drive strength / speed)** of the same gate.
+#### Example: AND Gate Variants 
+- 2-input AND gate → Slow / Medium / Fast.  
+- 3-input AND gate → Slow / Medium / Fast.  
+- 4-input AND gate → Slow / Medium / Fast.  
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/yosys%20setup.png" width="600"/>
+
 🔹 read_verilog → Loads RTL design (Verilog).
 
 🔹 read_liberty → Loads standard cell library (.lib) with gate, timing, and power info.
 
 🔹 write_verilog → Writes out synthesized gate-level netlist.
-<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/yosys%20setup.png" width="600"/>
 
 ## **Verify the Synthesis**
+### ⚙️ Synthesis  
+
+**RTL → Gate-Level Translation**
+
+- The design (RTL) is converted into **gates** using the standard cell library.  
+- Connections are established between these gates.  
+- The output of synthesis is a file called a **Netlist** 📝  
+
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/netlist%20synthesis.png" width="600"/>
 
 ### **Key Points**
