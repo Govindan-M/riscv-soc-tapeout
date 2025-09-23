@@ -1,5 +1,5 @@
 # Day 1 - Introduction to Verilog RTL Design and Synthesis 
-- **RTL design** refers to modeling digital circuits at the level of data flow between registers.
+- **RTL design** refers to behavioral representation of the required Specification.
 - **Verilog** is a Hardware Description Language (HDL) used to describe and simulate digital logic circuits.
 
 ## Introduction to Icarus Verilog (iverilog)
@@ -233,3 +233,31 @@ When viewing waveforms in GTKWave, here are **5 essential keys/functions** you s
 | `./a.out`                                         | Run simulation and generate waveform     |
 | `gtkwave <testbench_name>.vcd`                    | View simulation waveform                  |
 | `gvim -O <testbench_name.v> <design_name.v>`      | Edit testbench and design side-by-side   |
+
+# Introduction To Yosys
+## ⚙️ **Synthesizer**
+Tool used for converting RTL to netlist
+## **Yosys Setup**
+🔹 read_verilog → Loads RTL design (Verilog).
+
+🔹 read_liberty → Loads standard cell library (.lib) with gate, timing, and power info.
+
+🔹 write_verilog → Writes out synthesized gate-level netlist.
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/yosys%20setup.png" width="600"/>
+
+## **Verify the Synthesis**
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/netlist%20synthesis.png" width="600"/>
+
+### **Key Points**
+
+👉 The top module name stays the same.
+
+👉 The primary inputs/outputs remain unchanged between RTL and netlist.
+
+👉 The same testbench can be used for both RTL and synthesized netlist.
+
+**Difference:**
+
+🔹 RTL → behavioral (always blocks, operators).
+
+🔹 Netlist → structural (gates & flip-flops from .lib).
