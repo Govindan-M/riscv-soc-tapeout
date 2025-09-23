@@ -303,4 +303,72 @@ Tool used for converting RTL to netlist
 | Faster cells  | Circuit meets performance but **high power & area**; possible **hold time violations** |
 | Slower cells  | Circuit is sluggish; may **not meet timing/performance** requirements |
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/synthesis.png" width="600"/>
+
 - The guidance provided to the synthesizer is called **Constraints**.
+# 🧪 Lab: Yosys Synthesis of good_mux.v
+
+- In this lab, we synthesize a **2:1 multiplexer (good_mux.v)** using Yosys and a standard cell library.  
+- The goal is to convert the RTL design into a **gate-level netlist** that can be mapped to a real technology library.  
+
+**The steps below show the Yosys commands with explanations:**
+
+
+## Step 1: Invoke Yosys
+Start the Yosys tool to run synthesis commands
+```bash
+yosys
+```
+## Step 2: Read RTL design
+Load the RTL design written in Verilog. Yosys parses the design and builds an internal representation.
+```bash
+read_verilog good_mux.v
+```
+
+## Step 3: Read standard cell library
+Load the standard cell library (.lib) containing logic gates (AND, OR, NOT, DFF) and timing, power, area info.
+```bash
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+## Step 4: Synthesize the design
+Convert RTL behavioral constructs into a network of gates.
+```bash
+synth -top good_mux
+```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/yosys01.png" width="600"/>
+
+## Step 5: Map to library cells
+Map the synthesized design to actual library cells from the .lib file.
+```bash
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/ABC%20results.jpeg" width="600"/>
+
+## Step 6: Visualize design
+Optional command to see the design structure in a graphical form.
+```bash
+show
+```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/Dot%20viewer.png" width="600"/>
+
+
+## Step 7: Write gate-level netlist
+Export the synthesized design as a gate-level Verilog netlist.
+```bash
+write_verilog good_mux_netlist.v
+```
+
+## Step 8: Write netlist without extra attributes
+Export the netlist cleanly without extra attributes.
+```bash
+write_verilog -noattr good_mux_netlist.v
+```
+
+## Step 9: Open netlist for verification
+Open the netlist in an editor to verify the gates and connections.
+```bash
+!gvim good_mux_netlist.v
+```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/GVIM%20file.png" width="600"/>
+
