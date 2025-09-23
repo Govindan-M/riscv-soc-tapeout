@@ -278,3 +278,29 @@ Tool used for converting RTL to netlist
 🔹 RTL → behavioral (always blocks, operators).
 
 🔹 Netlist → structural (gates & flip-flops from .lib).
+
+## ⚡ Faster Cells vs Slower Cells
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%201/Images/load(capacitance).jpeg" width="600"/>
+
+
+| Cell Type      | Transistor Width | Delay       | Area       | Power      |
+|----------------|----------------|------------|------------|------------|
+| Faster Cell    | Wider          | Low        | More       | More       |
+| Slower Cell    | Narrower       | High       | Less       | Less       |
+
+**Notes:**  
+- Faster cells charge/discharge load capacitance quickly → lower delay.  
+- Wider transistors → higher current drive → more area & power.  
+- Slower cells are more area- and power-efficient but slower.
+
+## 🎯 Selection of Cells
+
+- The **synthesizer needs guidance** to choose the optimum cell flavor for implementing a logic circuit.  
+
+| Cell Usage         | Effect on Circuit                                    |
+|-------------------|-----------------------------------------------------|
+| Faster cells  | Circuit meets performance but **high power & area**; possible **hold time violations** |
+| Slower cells  | Circuit is sluggish; may **not meet timing/performance** requirements |
+
+- The guidance provided to the synthesizer is called **Constraints**.
