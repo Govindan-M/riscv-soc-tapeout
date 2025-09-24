@@ -69,6 +69,7 @@ Examples: `-40°C`, `25°C`, `125°C`
 ```bash
 gvim ../my_lib/lib/sky130_fd_sc_hd__tt_025c_1v80.lib
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/Dot%20lib%20file01.png" width="600"/>
 
 ### Step 2 – Disable Syntax Highlighting (Optional)
 
@@ -77,7 +78,7 @@ gvim ../my_lib/lib/sky130_fd_sc_hd__tt_025c_1v80.lib
 ```bash
 :syn off
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dot%20lib%20file02.png" width="600"/>
 - This makes the text appear plain, so it’s easier to search and read values.
 
 ### Step 3 – Search and Navigate Inside .lib
@@ -107,6 +108,8 @@ gvim ../my_lib/lib/sky130_fd_sc_hd__tt_025c_1v80.lib
 ### Step 4 – Compare Variations
 
 Compare **and2_0** vs **and2_2** vs **and2_4** for:
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/cell%20process.png" width="600"/>
 
 - **Leakage power** → should increase with size.
 
@@ -148,16 +151,19 @@ read_liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025c_1v80.lib
 ```bash
 synth -top multiple_modules
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/Hierarchical%20Synthesis01.png" width="600"/>
 
 ### Step 5 – Technology Mapping
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025c_1v80.lib
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_modules_ABC%20result.jpeg" width="600"/>
 
 ### Step 6 – View the Netlist
 ```bash
 show multiple_modules
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_modules_synthesis.jpeg" width="600"/>
 
 👉 The output netlist retains the module hierarchy.
 
@@ -178,12 +184,12 @@ yosys
 ```bash
 write_verilog multiple_modules_hier.v
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_module_hier.png" width="600"/>
 ### Step 3 – Inspect in gvim (Optional)
 ```bash
 !gvim multiple_modules_hier.v
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_module_flat.png" width="600"/>
 ### Step 4 – Write Netlist Without Attributes
 ```bash
 write_verilog -noattr multiple_modules_hier.v
@@ -198,15 +204,18 @@ flatten
 ```bash
 write_verilog multiple_modules_flat.v
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/flat%20synthesis01.png" width="600"/>
 
 ### Step 7 – View the Flattened Design
 ```bash
 show multiple_modules_flat
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/Hierarchical%20-dot%20viewer.png" width="600"/>
 👉 The output netlist is fully flattened with all modules merged into a single level.
 
-## 📊 Comparison  
+## 📊 Comparison 
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/Hierarchical%20%26%20flat%20synthesis.png" width="600"/>
 
 | Feature           | Hierarchical Synthesis         | Flat Synthesis                    |
 |-------------------|--------------------------------|-----------------------------------|
@@ -244,22 +253,29 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```bash
 read_verilog multiple_modules.v
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module01-1.png" width="600"/>
 
 ### Step 4: Synthesize for Sub-Module 1
 
 ```bash
 synth -top sub_module1
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module01-2.png" width="600"/>
+
 ### Step 5: Technology Mapping with Liberty
 
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module01-3.png" width="600"/>
+
 
 ### Step 6: View the Synthesized Netlist
 ```bash
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module01-dotviewer.png" width="600"/>
+
 ## 🔹 Sub-Module 2 Synthesis  
 
 
@@ -279,22 +295,27 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```bash
 read_verilog multiple_modules.v
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module02-1.png" width="600"/>
 
 ### Step 4: Synthesize for Sub-Module 1
 
 ```bash
 synth -top sub_module2
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module02-2.png" width="600"/>
+
 ### Step 5: Technology Mapping with Liberty
 
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module02-3.png" width="600"/>
 
 ### Step 6: View the Synthesized Netlist
 ```bash
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/sub_module02-dotviewer.png" width="600"/>
 
 ### **Benefits:**
 - Easier to debug each block.
