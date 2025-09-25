@@ -361,6 +361,7 @@ show
   ```bash
   iverilog dff_asyncres_syncres.v tb_dff_asyncres_syncres.v
   ```
+ 
 **Step 3:**
 - Run simulation (creates .vcd file from testbench):
 ```bash
@@ -371,6 +372,9 @@ show
 ```bash
 gtkwave tb_dff_asyncres_syncres.vcd
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres03.jpeg" width="600"/>
 ## TYPE 2: dff_asyncres
 
 **Step 1:**
@@ -391,6 +395,9 @@ gtkwave tb_dff_asyncres_syncres.vcd
 ```bash
 gtkwave tb_dff_asyncres.vcd
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres03.jpeg" width="600"/>
 
 ## TYPE 3: dff_async_set
 
@@ -411,8 +418,11 @@ gtkwave tb_dff_asyncres.vcd
 - View waveform:
 ```bash
 gtkwave tb_dff_async_set.vcd
-
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set03.jpeg" width="600"/>
+
 
 
 ## TYPE 4:`dff_syncres`
@@ -434,6 +444,10 @@ gtkwave tb_dff_async_set.vcd
 ```bash
 gtkwave tb_dff_syncres.vcd
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres03.jpeg" width="600"/>
+
 # B.Synthesis using Yosys
 
 **Common Notes:**
@@ -463,21 +477,26 @@ read_verilog dff_asyncres_syncres.v
 ```bash
 synth -top dff_asyncres_syncres
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn01.jpeg" width="600"/>
 
 **Step 5:** Map DFFs to library
 ```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn02.jpeg" width="600"/>
 
 **Step 6:** Optimize logic using ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn03.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn04.jpeg" width="600"/>
 **Step 7:** Show mapped netlist/graph
 ```bash
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn05.jpeg" width="600"/>
+
 ## TYPE 2: dff_asyncres
 
 - Repeat the same steps, replacing design name:
@@ -488,6 +507,12 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn03.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn04.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn05.jpeg" width="600"/>
+
 
 ## TYPE 3: dff_async_set
 ```bash
@@ -497,6 +522,11 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth01.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth02.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth03.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth04.jpeg" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth05.png" width="600"/>
 
 ## TYPE 4: dff_syncres
 ```bash
@@ -506,6 +536,12 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres_synth01.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres_synth02.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres_synth03.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres_synth04.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_syncres_synth05.png" width="600"/>
+
 
 ### ✅ Notes:
 
@@ -540,31 +576,33 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```bash
 read_verilog mult_2.v
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_01.png" width="600"/>
 **Step 4:** Synthesize top module
 ```bash
 synth -top mul2
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_02.png" width="600"/>
 **Step 5:** Optimize logic using ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_03.png" width="600"/>
 **Step 6:** Show mapped netlist/graph
 ```bash
 show
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_04.png" width="600"/>
 
 **Step 7:** Write optimized netlist
 ```bash
 write_verilog -noattr mul2_net.v
 ```
-
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_05.png" width="600"/>
 **Step 8:** Open netlist in editor (optional)
 ```bash
 !gvim mul2_net.v
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_06.png" width="600"/>
 **Example_2: `mult_8.v` (top module `mult8`)**
 - Repeat the same flow for mult_8.v with top module mult8.
 
@@ -578,5 +616,10 @@ show
 write_verilog -noattr mult8_net.v
 !gvim mul8_net.v
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul8_01.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul8_02.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul8_03.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul8_04.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul8_05.png" width="600"/>
 
 
