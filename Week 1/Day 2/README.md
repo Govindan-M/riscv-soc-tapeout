@@ -185,11 +185,13 @@ yosys
 write_verilog multiple_modules_hier.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_module_hier.png" width="600"/>
+
 ### Step 3 – Inspect in gvim (Optional)
 ```bash
 !gvim multiple_modules_hier.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/multiple_module_flat.png" width="600"/>
+
 ### Step 4 – Write Netlist Without Attributes
 ```bash
 write_verilog -noattr multiple_modules_hier.v
@@ -211,6 +213,7 @@ write_verilog multiple_modules_flat.v
 show multiple_modules_flat
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/Hierarchical%20-dot%20viewer.png" width="600"/>
+
 👉 The output netlist is fully flattened with all modules merged into a single level.
 
 ## 📊 Comparison 
@@ -375,7 +378,8 @@ gtkwave tb_dff_asyncres_syncres.vcd
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres01.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres02.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres03.jpeg" width="600"/>
-## TYPE 2: dff_asyncres
+
+## TYPE 2: `dff_asyncres`
 
 **Step 1:**
 - All design and TB files present in `verilog_files/`.
@@ -399,7 +403,7 @@ gtkwave tb_dff_asyncres.vcd
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres02.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres03.jpeg" width="600"/>
 
-## TYPE 3: dff_async_set
+## TYPE 3: `dff_async_set`
 
 **Step 1:**
 - All design and TB files present in `verilog_files/`.
@@ -457,7 +461,7 @@ gtkwave tb_dff_syncres.vcd
 
 ---
 
-## TYPE 1: dff_asyncres_syncres
+## TYPE 1: `dff_asyncres_syncres`
 
 **Step 1:** Start Yosys  
 ```bash
@@ -473,7 +477,7 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog dff_asyncres_syncres.v
 ```
 
-**Step 4:**Synthesize top module
+**Step 4:** Synthesize top module
 ```bash
 synth -top dff_asyncres_syncres
 ```
@@ -492,12 +496,13 @@ abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn03.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn04.jpeg" width="600"/>
 **Step 7:** Show mapped netlist/graph
+
 ```bash
 show
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn05.jpeg" width="600"/>
 
-## TYPE 2: dff_asyncres
+## TYPE 2: `dff_asyncres`
 
 - Repeat the same steps, replacing design name:
 ```bash
@@ -514,7 +519,7 @@ show
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syn05.jpeg" width="600"/>
 
 
-## TYPE 3: dff_async_set
+## TYPE 3: `dff_async_set`
 ```bash
 read_verilog dff_async_set.v
 synth -top dff_async_set
@@ -528,7 +533,7 @@ show
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth04.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_async_set_synth05.png" width="600"/>
 
-## TYPE 4: dff_syncres
+## TYPE 4: `dff_syncres`
 ```bash
 read_verilog dff_syncres.v
 synth -top dff_syncres
@@ -567,7 +572,7 @@ show
 ```bash
 yosys
 ```
-**Step 2:**Read standard cell library
+**Step 2:** Read standard cell library
 ```bash
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
@@ -577,16 +582,19 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog mult_2.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_01.png" width="600"/>
+
 **Step 4:** Synthesize top module
 ```bash
 synth -top mul2
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_02.png" width="600"/>
+
 **Step 5:** Optimize logic using ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_03.png" width="600"/>
+
 **Step 6:** Show mapped netlist/graph
 ```bash
 show
@@ -598,11 +606,13 @@ show
 write_verilog -noattr mul2_net.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_05.png" width="600"/>
+
 **Step 8:** Open netlist in editor (optional)
 ```bash
 !gvim mul2_net.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_06.png" width="600"/>
+
 **Example_2: `mult_8.v` (top module `mult8`)**
 - Repeat the same flow for mult_8.v with top module mult8.
 
