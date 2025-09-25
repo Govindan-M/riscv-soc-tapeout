@@ -324,4 +324,259 @@ show
 
 - Useful when the same sub-module is instantiated multiple times in the top design.
 
+# Flip-Flop Coding Styles & Glitch Notes
+
+## 🔹 Glitch
+- **Definition**: Short spurious change due to path delays in combinational circuits.  
+- **Happens**: Only in **combinational logic** (continuous outputs).  
+- **Fix**: Use **flops on clock edge** to register outputs.  
+
+---
+
+## 🔹 Flops & Initial State
+- Flops without init → **garbage state**.  
+- Use **control pins (reset/set)** to start from known state.  
+- **Reset/Set types**:  
+  - **Asynchronous** → immediate effect (independent of clk).  
+  - **Synchronous** → applied on clk edge.  
+
+## 🔹 4 Major DFF Types
+- `dff_asyncres_syncres.v`
+- `dff_asyncres.v`
+- `dff_async_set.v`
+- `dff_syncres.v`
+
+## 🧪 LAB 4 — Simulate waveforms & Synthesize 4 DFF types
+
+## A. Simulation (generate VCD and view in GTKWave)
+**Goal:** simulate each DFF + testbench and view waveform.
+
+## TYPE 1: `dff_asyncres_syncres`
+
+**Step 1:**
+- All design and TB files present in `verilog_files/`
+
+**Step 2:**
+- To Compile the Simulation:
+  ```bash
+  iverilog dff_asyncres_syncres.v tb_dff_asyncres_syncres.v
+  ```
+**Step 3:**
+- Run simulation (creates .vcd file from testbench):
+```bash
+./a.out
+```
+**Step 4:**
+- View waveform:
+```bash
+gtkwave tb_dff_asyncres_syncres.vcd
+```
+## TYPE 2: dff_asyncres
+
+**Step 1:**
+- All design and TB files present in `verilog_files/`.
+
+**Step 2:**
+- To Compile the Simulation:
+  ```bash
+  iverilog dff_asyncres.v tb_dff_asyncres.v
+  ```
+**Step 3:**
+- Run simulation (creates .vcd file from testbench):
+```bash
+./a.out
+```
+**Step 4:**
+- View waveform:
+```bash
+gtkwave tb_dff_asyncres.vcd
+```
+
+## TYPE 3: dff_async_set
+
+**Step 1:**
+- All design and TB files present in `verilog_files/`.
+
+**Step 2:**
+- To Compile the Simulation:
+  ```bash
+  iverilog dff_async_set.v tb_dff_async_set.v
+  ```
+**Step 3:**
+- Run simulation (creates .vcd file from testbench):
+```bash
+./a.out
+```
+**Step 4:**
+- View waveform:
+```bash
+gtkwave tb_dff_async_set.vcd
+
+```
+
+
+## TYPE 4:`dff_syncres`
+
+**Step 1:**
+- All design and TB files present in `verilog_files/`.
+**Step 2:**
+ - To Compile the Simulation:
+   ```bash
+   iverilog dff_syncres.v tb_dff_syncres.v
+   ```
+**Step 3:**
+- Run simulation (creates .vcd file from testbench):
+```bash
+./a.out
+```
+**Step 4:**
+- View waveform:
+```bash
+gtkwave tb_dff_syncres.vcd
+```
+# B.Synthesis using Yosys
+
+**Common Notes:**
+- Standard cell library path: `../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- Run Yosys in shell: `yosys`
+- Use `read_liberty`, `read_verilog`, `synth`, `dfflibmap`, `abc`, `show`
+
+---
+
+## TYPE 1: dff_asyncres_syncres
+
+**Step 1:** Start Yosys  
+```bash
+yosys
+```
+**Step 2:** Read standard cell library
+```bash
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+**Step 3:** Read Verilog design
+```bash
+read_verilog dff_asyncres_syncres.v
+```
+
+**Step 4:**Synthesize top module
+```bash
+synth -top dff_asyncres_syncres
+```
+
+**Step 5:** Map DFFs to library
+```bash
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+**Step 6:** Optimize logic using ABC
+```bash
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+**Step 7:** Show mapped netlist/graph
+```bash
+show
+```
+## TYPE 2: dff_asyncres
+
+- Repeat the same steps, replacing design name:
+```bash
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+## TYPE 3: dff_async_set
+```bash
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+## TYPE 4: dff_syncres
+```bash
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+### ✅ Notes:
+
+- Replace <design_name> for each type.
+
+- show opens Graphviz or produces netlist visualizations.
+
+- Ensure the library path is correct for your repo.
+
+## 🧪 LAB5 — Optimization Example (Multiplier)
+
+**Design Files:**  
+- `mult_2.v` → top module `mul2`  
+- `mult_8.v` → top module `mul8`
+
+**Standard Cell Library:**  `../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+
+## Steps for Optimization using Yosys
+
+**Example_1: `mult_2.v` (top module `mul2`)**
+
+**Step 1:** Invoke Yosys  
+```bash
+yosys
+```
+**Step 2:**Read standard cell library
+```bash
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+**Step 3:** Read Verilog design
+```bash
+read_verilog mult_2.v
+```
+
+**Step 4:** Synthesize top module
+```bash
+synth -top mul2
+```
+
+**Step 5:** Optimize logic using ABC
+```bash
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+**Step 6:** Show mapped netlist/graph
+```bash
+show
+```
+
+**Step 7:** Write optimized netlist
+```bash
+write_verilog -noattr mul2_net.v
+```
+
+**Step 8:** Open netlist in editor (optional)
+```bash
+!gvim mul2_net.v
+```
+**Example_2: `mult_8.v` (top module `mult8`)**
+- Repeat the same flow for mult_8.v with top module mult8.
+
+```bash
+yosys
+read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_8.v
+synth -top mult8
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult8_net.v
+!gvim mul8_net.v
+```
+
 
