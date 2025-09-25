@@ -495,6 +495,7 @@ abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn03.jpeg" width="600"/>
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/dff_asyncres_syncres_syn04.jpeg" width="600"/>
+
 **Step 7:** Show mapped netlist/graph
 
 ```bash
@@ -581,6 +582,7 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```bash
 read_verilog mult_2.v
 ```
+
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_01.png" width="600"/>
 
 **Step 4:** Synthesize top module
@@ -605,6 +607,7 @@ show
 ```bash
 write_verilog -noattr mul2_net.v
 ```
+
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_05.png" width="600"/>
 
 **Step 8:** Open netlist in editor (optional)
@@ -614,6 +617,7 @@ write_verilog -noattr mul2_net.v
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%202/Images/mul2_06.png" width="600"/>
 
 **Example_2: `mult_8.v` (top module `mult8`)**
+
 - Repeat the same flow for mult_8.v with top module mult8.
 
 ```bash
