@@ -48,37 +48,37 @@ gvim opt_check.v
 Run the following Yosys flow for optimisation:
 
 ```
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 ```bash
 read_verilog opt_check.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check-01.png" width="600"/>
 
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 ```bash
 synth -top opt_check
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check-02.png" width="600"/>
 
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 ```bash
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check-03.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check-04.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -91,35 +91,35 @@ show
 Run the following Yosys flow for optimisation:
 
 ```bash 
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog opt_check2.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check2-01.png" width="600"/>
 
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 ```bash
 synth -top opt_check2
 ```
 
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 ```bash
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check2-02.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check2-03.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -128,34 +128,34 @@ show
 ### 📝 Exercise 3 - `opt_check3`
 
 ```bash
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog opt_check3.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check3-01.png" width="600"/>
 
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 ```bash
 synth -top opt_check3
 ```
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 ```bash
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check3-02.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check3-03.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -164,35 +164,35 @@ show
 ### 📝 Exercise 4 - `opt_check4`
 
 ```bash
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog opt_check4.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check4-01.png" width="600"/>
 
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 ```bash
 synth -top opt_check4
 ```
 
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 ```bash
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check4-02.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/opt_check4-03.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -201,33 +201,33 @@ show
 ## 📝 Exercises 5 - `multiple_module_opt`
 
 ```bash
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog ../verilog_files/multiple_module_opt.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt-01.png" width="600"/>
 
 ```bash
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 synth -top multiple_module_opt
 
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt-03.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt-04.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -236,33 +236,33 @@ show
 ### 📝 Exercises 6 - `multiple_module_opt2`
 
 ```bash
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog ../verilog_files/multiple_module_opt2.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt2-01.png" width="600"/>
 
 ```bash
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 synth -top multiple_module_opt2
 
-# Step 5: Constant Propagation & Cleanup
+### Step 5: Constant Propagation & Cleanup
 opt_clean -purge
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt2-02.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/multiple_module_opt2-04.png" width="600"/>
 
-# Step 7: Visualise the Design
+### Step 7: Visualise the Design
 ```bash
 show
 ```
@@ -288,15 +288,15 @@ gvim dff_const1.v -o dff_const2.v
 ### A) Waveform Simulation
 
 ```bash
-# Step 1: Compile Verilog Design with Testbench
+### Step 1: Compile Verilog Design with Testbench
 iverilog dff_const1.v tb_dff_const1.v
 
-# Step 2: Run Simulation
+### Step 2: Run Simulation
 ./a.out
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/dff_const1-01.png" width="600"/>
 
-# Step 3: View Waveform
+### Step 3: View Waveform
 ```bash
 gtkwave tb_dff_const1.vcd
 ```
@@ -307,33 +307,33 @@ gtkwave tb_dff_const1.vcd
 ### B) Synthesis using Yosys
 
 ```bash
-# Step 4: Invoke Yosys
+### Step 4: Invoke Yosys
 yosys
 
-# Step 5: Read Verilog Design
+### Step 5: Read Verilog Design
 read_verilog dff_const1.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/dff_const1_synth-01.png" width="600"/>
 
-# Step 6: Synthesize Top Module
+### Step 6: Synthesize Top Module
 ```bash
 synth -top dff_const1
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/dff_const1_synth-03.png" width="600"/>
 
-# Step 7: Map DFFs to library cells
+### Step 7: Map DFFs to library cells
 ```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/dff_const1_synth-04.png" width="600"/>
 
-# Step 8: Optimise with ABC
+### Step 8: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/dff_const1_synth-05.png" width="600"/>
 
-# Step 9: Visualise the Synthesised Design
+### Step 9: Visualise the Synthesised Design
 ```bash
 show
 ```
@@ -503,36 +503,36 @@ show
 ## 🛠️ Synthesis Flow to Verify Optimisation
 
 ```bash
-# Step 1: Invoke Yosys
+### Step 1: Invoke Yosys
 yosys
 
-# Step 2: Read Standard Cell Library
+### Step 2: Read Standard Cell Library
 read_liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 3: Read Verilog Design
+### Step 3: Read Verilog Design
 read_verilog counter_opt.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt-01.png" width="600"/>
 
-# Step 4: Synthesize Top Module
+### Step 4: Synthesize Top Module
 ```bash
 synth -top counter_opt
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt-02.png" width="600"/>
 
-# Step 5: Map DFFs to library cells
+### Step 5: Map DFFs to library cells
 ```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt-03.png" width="600"/>
 
-# Step 6: Optimise with ABC
+### Step 6: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt-04.png" width="600"/>
 
-# Step 7: Visualise the Synthesised Design
+### Step 7: Visualise the Synthesised Design
 ```bash
 show
 ```
@@ -552,18 +552,18 @@ show
 ## 🛠️ RTL Modification
 
 ```bash
-# Step 1: Open original RTL for editing
+### Step 1: Open original RTL for editing
 gvim counter_opt.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-01.png" width="600"/>
 
 ```bash
-# Step 2: Copy original RTL to new file
+### Step 2: Copy original RTL to new file
 cp counter_opt.v counter_opt2.v
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-02.png" width="600"/>
 ```bash
-# Step 3: Modify RTL in new file
+### Step 3: Modify RTL in new file
 gvim counter_opt2.v
 # Change the assign statement to:
 # assign q = (count[2:0] == 3'b100)
@@ -578,37 +578,37 @@ gvim counter_opt2.v
 ## 🛠️ Synthesis Flow using Yosys
 
 ```bash
-# Step 4: Launch Yosys
+### Step 4: Launch Yosys
 yosys
 
-# Step 5: Read Standard Cell Library
+### Step 5: Read Standard Cell Library
 read_liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-# Step 6: Read Modified Verilog Design
+### Step 6: Read Modified Verilog Design
 read_verilog counter_opt2.v
 ```
 
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-04.png" width="600"/>
 
-# Step 7: Synthesize Top Module
+### Step 7: Synthesize Top Module
 ```bash
 synth -top counter_opt   # Note: DFF_PPO -> 3
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-05.png" width="600"/>
 
-# Step 8: Map DFFs to library cells
+### Step 8: Map DFFs to library cells
 ```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-06.png" width="600"/>
 
-# Step 9: Optimise with ABC
+### Step 9: Optimise with ABC
 ```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 ```
 <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%203/Images/counter_opt2-07.png" width="600"/>
 
-# Step 10: Visualise the Synthesised Design
+### Step 10: Visualise the Synthesised Design
 ```bash
 show
 ```
