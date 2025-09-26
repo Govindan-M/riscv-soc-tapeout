@@ -32,7 +32,7 @@ ls *opt*
 ls *opt_check*
 gvim opt_check.v
 ```
-
+<img src="" width="600"/>
 ---
 
 ## 📝 Exercises
@@ -54,20 +54,34 @@ yosys
 read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
+```bash
 read_verilog opt_check.v
+```
+<img src="" width="600"/>
 
 # Step 4: Synthesize Top Module
+```bash
 synth -top opt_check
+```
+<img src="" width="600"/>
 
 # Step 5: Constant Propagation & Cleanup
+```bash
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ✅ *Demonstrates basic constant propagation and logic simplification.*
 
@@ -75,7 +89,7 @@ show
 
 Run the following Yosys flow for optimisation:
 
-```
+```bash 
 # Step 1: Invoke Yosys
 yosys
 
@@ -84,23 +98,35 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog opt_check2.v
+```
+<img src="" width="600"/>
 
 # Step 4: Synthesize Top Module
+```bash
 synth -top opt_check2
+```
 
 # Step 5: Constant Propagation & Cleanup
+```bash
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ### 📝 Exercise 3 - `opt_check3`
 
-```
+```bash
 # Step 1: Invoke Yosys
 yosys
 
@@ -109,23 +135,34 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog opt_check3.v
+```
+<img src="" width="600"/>
 
 # Step 4: Synthesize Top Module
+```bash
 synth -top opt_check3
-
+```
 # Step 5: Constant Propagation & Cleanup
+```bash
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ### 📝 Exercise 4 - `opt_check4`
 
-```
+```bash
 # Step 1: Invoke Yosys
 yosys
 
@@ -134,23 +171,35 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog opt_check4.v
+```
+<img src="" width="600"/>
 
 # Step 4: Synthesize Top Module
+```bash
 synth -top opt_check4
+```
 
 # Step 5: Constant Propagation & Cleanup
+```bash
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ## 📝 Exercises 5 - `multiple_module_opt`
 
-```
+```bash
 # Step 1: Invoke Yosys
 yosys
 
@@ -159,23 +208,33 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog ../verilog_files/multiple_module_opt.v
+```
+<img src="" width="600"/>
 
+```bash
 # Step 4: Synthesize Top Module
 synth -top multiple_module_opt
 
 # Step 5: Constant Propagation & Cleanup
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ### 📝 Exercises 6 - `multiple_module_opt2`
 
-```
+```bash
 # Step 1: Invoke Yosys
 yosys
 
@@ -184,19 +243,29 @@ read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog ../verilog_files/multiple_module_opt2.v
+```
+<img src="" width="600"/>
 
+```bash
 # Step 4: Synthesize Top Module
 synth -top multiple_module_opt2
 
 # Step 5: Constant Propagation & Cleanup
 opt_clean -purge
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 # Lab2: Sequential Logic Optimisation
 
@@ -209,6 +278,7 @@ ls
 ls *dff_const*
 gvim dff_const1.v -o dff_const2.v
 ```
+<img src="" width="600"/>
 
 ---
 
@@ -222,34 +292,51 @@ iverilog dff_const1.v tb_dff_const1.v
 
 # Step 2: Run Simulation
 ./a.out
+```
+<img src="" width="600"/>
 
 # Step 3: View Waveform
+```bash
 gtkwave tb_dff_const1.vcd
 ```
+<img src="" width="600"/>
 
 ✅ *Observe DFF behaviour, reset/set functionality, and propagation delays.*
 
 ### B) Synthesis using Yosys
 
-```
+```bash
 # Step 4: Invoke Yosys
 yosys
 
 # Step 5: Read Verilog Design
 read_verilog dff_const1.v
+```
+<img src="" width="600"/>
 
 # Step 6: Synthesize Top Module
+```bash
 synth -top dff_const1
+```
+<img src="" width="600"/>
 
 # Step 7: Map DFFs to library cells
+```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 8: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 9: Visualise the Synthesised Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ✅ *Demonstrates sequential logic optimisation, constant propagation, and DFF mapping.*
 
@@ -260,21 +347,44 @@ show
 ```bash
 iverilog dff_const2.v tb_dff_const2.v
 ./a.out
+```
+<img src="" width="600"/>
+
+```bash
 gtkwave tb_dff_const2.vcd
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Observe DFF behaviour, reset/set functionality, and propagation delays.*
 
 ### B) Synthesis using Yosys
 
-```
+```bash
 yosys
 read_verilog dff_const2.v
+```
+<img src="" width="600"/>
+
+```bash
 synth -top dff_const2
+```
+<img src="" width="600"/>
+
+```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
+
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
+
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ✅ *Demonstrates sequential logic optimisation, constant propagation, and DFF mapping.*
 
@@ -286,7 +396,9 @@ show
 iverilog dff_const3.v tb_dff_const3.v
 ./a.out
 gtkwave tb_dff_const3.vcd
-```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>```
 
 ✅ *Observe DFF behaviour, reset/set functionality, and propagation delays.*
 
@@ -300,6 +412,11 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Demonstrates sequential logic optimisation, constant propagation, and DFF mapping.*
 
@@ -314,6 +431,9 @@ iverilog dff_const4.v tb_dff_const4.v
 ./a.out
 gtkwave tb_dff_const4.vcd
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Observe DFF behaviour, reset/set functionality, and propagation delays.*
 
@@ -327,6 +447,10 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Demonstrates sequential logic optimisation, constant propagation, and DFF mapping.*
 
@@ -341,6 +465,9 @@ iverilog dff_const5.v tb_dff_const5.v
 ./a.out
 gtkwave tb_dff_const5.vcd
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Observe DFF behaviour, reset/set functionality, and propagation delays.*
 
@@ -354,6 +481,11 @@ dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ```
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
+<img src="" width="600"/>
 
 ✅ *Demonstrates sequential logic optimisation, constant propagation, and DFF mapping.*
 
@@ -369,7 +501,7 @@ show
 
 ## 🛠️ Synthesis Flow to Verify Optimisation
 
-```
+```bash
 # Step 1: Invoke Yosys
 yosys
 
@@ -378,20 +510,32 @@ read_liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 3: Read Verilog Design
 read_verilog counter_opt.v
+```
+<img src="" width="600"/>
 
 # Step 4: Synthesize Top Module
+```bash
 synth -top counter_opt
+```
+<img src="" width="600"/>
 
 # Step 5: Map DFFs to library cells
+```bash
 dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 6: Optimise with ABC
+```bash
 abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
 
 # Step 7: Visualise the Synthesised Design
+```bash
 show
-
 ```
+<img src="" width="600"/>
 
 ✅ *This demonstrates sequential optimisation where only the used output (`c[0]`) is synthesised while unused outputs (`c[1]`, `c[2]`) are ignored or removed, reducing logic and improving area/power efficiency.*
 
@@ -409,16 +553,22 @@ show
 ```bash
 # Step 1: Open original RTL for editing
 gvim counter_opt.v
+```
+<img src="" width="600"/>
 
+```bash
 # Step 2: Copy original RTL to new file
 cp counter_opt.v counter_opt2.v
-
+```
+<img src="" width="600"/>
+```bash
 # Step 3: Modify RTL in new file
 gvim counter_opt2.v
 # Change the assign statement to:
 # assign q = (count[2:0] == 3'b100)
 # Save changes (:wa!)
 ```
+<img src="" width="600"/>
 
 ✅ *This modification creates a new output condition based on the counter value.*
 
@@ -426,7 +576,7 @@ gvim counter_opt2.v
 
 ## 🛠️ Synthesis Flow using Yosys
 
-```
+```bash
 # Step 4: Launch Yosys
 yosys
 
@@ -435,12 +585,32 @@ read_liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 # Step 6: Read Modified Verilog Design
 read_verilog counter_opt2.v
+```
+
+<img src="" width="600"/>
 
 # Step 7: Synthesize Top Module
+```bash
 synth -top counter_opt   # Note: DFF_PPO -> 3
+```
+<img src="" width="600"/>
 
-# Step 8: Visualise Synthesised Design
+# Step 8: Map DFFs to library cells
+```bash
+dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
+
+# Step 9: Optimise with ABC
+```bash
+abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+<img src="" width="600"/>
+
+# Step 10: Visualise the Synthesised Design
+```bash
 show
 ```
+<img src="" width="600"/>
 
 ✅ *This lab demonstrates RTL modification, synthesising a new logic condition, and visualising the effect on the netlist and DFF outputs.*
