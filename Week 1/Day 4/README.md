@@ -35,7 +35,7 @@
 - Detect **Synthesis–Simulation mismatches** early.
 
 ---
-<img src="" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%204/GLS%20flowchart.jpeg" width="600"/>
 
 ## 🔹 Synthesis–Simulation Mismatch
 
