@@ -31,10 +31,6 @@ This repository serves as the official **Week 1 submission** for the **Digital V
 
 ## 🔗 Links
 
-- **Day 1:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%201)
-- **Day 2:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%202)
-- **Day 3:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%203)
-- **Day 4:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%204)
-- **Day 5:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%205)
+ **Day 1:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%201) **Day 2:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%202) **Day 3:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%203) **Day 4:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%204) **Day 5:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week%201/Day%205)
 
 ✅ Screenshots, reports, and Verilog codes are updated and verified in the `Week1/images` folder 📂
