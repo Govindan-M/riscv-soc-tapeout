@@ -70,6 +70,7 @@ Example 1: `incomp_if.v`
     ```bash
     gtkwave tb_incomp_if.vcd
     ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if-01.png" width="600"/>
     
 4. Open **yosys** for synthesis:
     
@@ -94,7 +95,8 @@ Example 1: `incomp_if.v`
     ```bash
     synth -top incomp_if
     ```
-    
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if-02.png" width="600"/>
+
 8. Run ABC technology mapping:
     
     ```bash
@@ -106,7 +108,7 @@ Example 1: `incomp_if.v`
     ```bash
     show
     ```
-    
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if-03.png" width="600"/>
 
 Example 2: `incomp_if2.v` 
 
@@ -131,6 +133,7 @@ Example 2: `incomp_if2.v`
     ```bash
     gtkwave tb_incomp_if2.vcd
     ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if2-01.png" width="600"/>
     
 4. Open **yosys** for synthesis:
     
@@ -155,18 +158,21 @@ Example 2: `incomp_if2.v`
     ```
     synth -top incomp_if2
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if2-02.png" width="600"/>
     
 8. Run ABC technology mapping:
     
     ```
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if2-03.png" width="600"/>
     
 9. Visualize synthesized circuit:
     
     ```
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_if2-04.png" width="600"/>
     
 
 ## Example 3: `incomp_case.v`
@@ -192,6 +198,7 @@ Example 2: `incomp_if2.v`
     ```bash
     gtkwave tb_incomp_case.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_case-01.png" width="600"/>
     
 4. Open **yosys** for synthesis:
     
@@ -216,18 +223,21 @@ Example 2: `incomp_if2.v`
     ```
     synth -top incomp_case
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_case-02.png" width="600"/>
     
 8. Run ABC technology mapping:
     
     ```
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_case-03.png" width="600"/>
     
 9. Visualize synthesized circuit:
     
     ```
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/incomp_case-04.png" width="600"/>
     
 
 ## Example 4: `comp_case.v`
@@ -253,6 +263,7 @@ Example 2: `incomp_if2.v`
     ```bash
     gtkwave tb_comp_case.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/comp_case-01.png" width="600"/>
     
 4. Open **yosys** for synthesis:
     
@@ -277,18 +288,21 @@ Example 2: `incomp_if2.v`
     ```
     synth -top comp_case
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/comp_case-02.png" width="600"/>
     
 8. Run ABC technology mapping:
     
     ```
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/comp_case-03.png" width="600"/>
     
 9. Visualize synthesized circuit:
     
     ```
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/comp_case-04.png" width="600"/>
     
 
 ## Example 5: `bad_case.v`
@@ -314,6 +328,7 @@ Example 2: `incomp_if2.v`
     ```bash
     gtkwave tb_bad_case.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/bad_case-01.png" width="600"/>
     
 4. Open **yosys** for synthesis:
     
@@ -338,18 +353,21 @@ Example 2: `incomp_if2.v`
     ```
     synth -top bad_case
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/bad_case-02.png" width="600"/>
     
 8. Run ABC technology mapping:
     
     ```
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/bad_case-03.png" width="600"/>
     
 9. Visualize synthesized circuit:
     
     ```
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/bad_case-04.png" width="600"/>
     
 10. Write synthesized netlist to Verilog:
     
@@ -369,6 +387,7 @@ Example 2: `incomp_if2.v`
     ```bash
     gtkwave tb_bad_case.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/bad_case-05.png" width="600"/>
     
 
 # Synthesis & Verilog Coding Styles: Loop Constructs
@@ -458,6 +477,7 @@ Lab 2a: MUX Using Generate For Loop
     ```bash
     gtkwave tb_mux_generate.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/mux_generate-01.png" width="600"/>
     
 4. Synthesize in Yosys:
     
@@ -468,6 +488,9 @@ Lab 2a: MUX Using Generate For Loop
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/mux_generate-02.png" width="600"/>
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/mux_generate-03.png" width="600"/>
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/mux_generate-04.png" width="600"/>
     
 
 ---
@@ -497,6 +520,7 @@ Lab 2a: MUX Using Generate For Loop
     ```bash
     gtkwave tb_demux_generate.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/demux_generate-01.png" width="600"/>
     
 4. Synthesize in Yosys:
     
@@ -507,6 +531,9 @@ Lab 2a: MUX Using Generate For Loop
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     show
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/demux_generate-02.png" width="600"/>
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/demux_generate-03.png" width="600"/>
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/demux_generate-04.png" width="600"/>
     
 
 ---
@@ -536,6 +563,7 @@ Lab 2a: MUX Using Generate For Loop
     ```bash
     gtkwave tb_rca.vcd
     ```
+ <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/rca-01.png" width="600"/>
     
 4. Synthesize in Yosys:
     
@@ -546,6 +574,10 @@ Lab 2a: MUX Using Generate For Loop
     abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
     show
     ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/rca-02.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/rca-03.png" width="600"/>
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%201/Day%205/Images/rca-04.png" width="600"/>
+ 
 ## Summary Notes
 
 - Always write synthesizable and complete combinational logic to avoid inferred latches.
