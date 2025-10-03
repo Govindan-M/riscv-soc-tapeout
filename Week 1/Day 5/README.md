@@ -1,215 +1,556 @@
-# 📘 Day 5 – Optimization in Synthesis
-✨ Optimization is about **making designs work better, faster, and more reliably**.
+# Day 5 - Optimisation in Synthesis
 
-## 📚 Table of Contents
-- 1️⃣ Overlapping & Incomplete Cases
-- 2️⃣ Incomplete If-Else & Case Statements
-- 3️⃣ For Loops vs For-Generate
-- 4️⃣ DEMUX & Multiplexers
-- 5️⃣ Ripple Carry Adder (RCA)
-- 6️⃣ Labs & Simulation Flow
-- 7️⃣ Key Takeaways
-## 1️⃣ Overlapping & Incomplete Cases – Primary Focus
+This repository demonstrates **optimisation in synthesis** with a focus on **inferred latches**, caused by bad coding styles using `if` and `case` statements. It includes examples of both **combinational logic** and **sequential logic**, illustrating the right and wrong ways to code in Verilog.
+## Key Learning Points
 
-**Problem:** Overlapping or partial case statements can cause **unpredictable outputs or inferred latches**.
+- **Inferred Latches**:
+    - Caused when combinational logic does not assign outputs in *all paths*.
+    - Tools will warn: *latch inferred for signal...*.
+    - In sequential circuits, missing enable causes latch-like behaviour (previous value held).
+- **Bad coding style**:
+    - `if (cond) begin ... end` without an `else` → latch.
+    - `case` without full branch coverage or missing `default` → latch.
+    - Partial assignments in some `case` branches.
+- **Good coding style**:
+    - Always provide `else` or default assignments.
+    - In sequential logic, explicitly code enable/reset behaviour.
+    - Cover *all* outputs in every branch.
 
-**Example – Bad Case:**
+## If vs Case Statements (Comparison)
 
-```verilog
-module bad_case(input i0, i1, i2, i3, input [1:0] sel, output reg y);
-    always @(*) begin
-        case(sel)
-            2'b00: y = i0;
-            2'b01: y = i1;
-            2'b10: y = i2;
-            2'b1?: y = i3; // ❌ overlapping, unsafe
-        endcase
-    end
-endmodule
+| Feature | If Statement | Case Statement |
+| --- | --- | --- |
+| Priority | High (top branch wins) | No priority care, parallel checks |
+| Execution | Only one branch executes | Mutually exclusive branches |
+| Coverage | Needs else for all cases | Needs default or full coverage |
+| Risk | Incomplete if → unpredictable latch | Incomplete case → inferred latch |
+| Overlap | Not allowed (priority resolves) | Should avoid overlapping cases |
 
-```
+## Caveats
 
-**✅ Solution:** Cover **all input combinations explicitly** and use `default:` for safety.
-
----
-
-## 2️⃣ Incomplete If-Else & Case Statements
-
-**Problem:** Missing branches can infer latches, causing functional mismatches.
-
-**Example – Incomplete If:**
-
-```verilog
-module incomp_if(input i0, i1, i2, output reg y);
-    always @(*) begin
-        if(i0) y <= i1; // ❌ No else → y retains previous value
-    end
-endmodule
-
-```
-
-**Fix – Default assignment or complete branches:**
-
-```verilog
-always @(*) begin
-    y = 1'b0; // default
-    if(i0) y <= i1;
-end
-
-```
-
-**Complete Case Example:**
-
-```verilog
-module comp_case(input i0, i1, i2, input [1:0] sel, output reg y);
-    always @(*) begin
-        case(sel)
-            2'b00: y = i0;
-            2'b01: y = i1;
-            default: y = i2; // ✅ ensures no latch
-        endcase
-    end
-endmodule
-
-```
+- **Incomplete case** → latch.
+- **Partial assignment** in case → latch.
+- Always assign *all outputs* in *all segments*.
+- If using case, always include `default`.
 
 ---
 
-## 3️⃣ For Loops vs For-Generate
+## Checklist (Combinational Logic)
 
-- **For loop:** inside `always` blocks for evaluation.
+1. Use `always @(*)` or `always_comb`.
+2. For `if`, add `else` (or default assignment).
+3. For `case`, add `default` or cover all cases.
+4. Assign *all outputs* in *all paths*.
+5. For sequential logic, include enable/reset explicitly.
 
-```verilog
-always @(*) begin
-    for(k=0; k<4; k=k+1)
-        if(k==sel) y = i_int[k];
-end
+## Lab 1: Incomplete Caveats with `if` & `case`
 
-```
+This lab shows the **synthesis and simulation flow** for incomplete `if` and `case` statements that cause inferred latches.
 
-- **For-generate:** outside `always` for hardware replication.
+Example 1: `incomp_if.v`
 
-```verilog
-genvar i;
-generate
-    for(i=1;i<8;i=i+1) begin
-        fa u_fa (.a(num1[i]), .b(num2[i]), .c(int_co[i-1]), .co(int_co[i]), .sum(int_sum[i]));
-    end
-endgenerate
+### Steps
 
-```
+1. Open the files using gvim split view:
+    
+    ```bash
+    cd verilog_files
+    gvim *incomp* -o
+    ```
+    
+2. Run simulation with **iverilog** and testbench:
+    
+    ```bash
+    iverilog incomp_if.v tb_incomp_if.v
+    ./a.out
+    ```
+    
+3. View waveform with **GTKWave**:
+    
+    ```bash
+    gtkwave tb_incomp_if.vcd
+    ```
+    
+4. Open **yosys** for synthesis:
+    
+    ```bash
+    yosys
+    ```
+    
+5. Inside yosys, read design file:
+    
+    ```bash
+    read_verilog incomp_if.v
+    ```
+    
+6. Load standard cell library:
+    
+    ```bash
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+7. Run synthesis:
+    
+    ```bash
+    synth -top incomp_if
+    ```
+    
+8. Run ABC technology mapping:
+    
+    ```bash
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+9. Visualize synthesized circuit:
+    
+    ```bash
+    show
+    ```
+    
+
+Example 2: `incomp_if2.v` 
+
+### Steps
+
+1. Open the files using gvim split view:
+    
+    ```bash
+    cd verilog_files
+    gvim *incomp_if2* -o
+    ```
+    
+2. Run simulation with **iverilog** and testbench:
+    
+    ```bash
+    iverilog incomp_if2.v tb_incomp_if2.v
+    ./a.out
+    ```
+    
+3. View waveform with **GTKWave**:
+    
+    ```bash
+    gtkwave tb_incomp_if2.vcd
+    ```
+    
+4. Open **yosys** for synthesis:
+    
+    ```bash
+    yosys
+    ```
+    
+5. Inside yosys, read design file:
+    
+    ```
+    read_verilog incomp_if2.v
+    ```
+    
+6. Load standard cell library:
+    
+    ```
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+7. Run synthesis:
+    
+    ```
+    synth -top incomp_if2
+    ```
+    
+8. Run ABC technology mapping:
+    
+    ```
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+9. Visualize synthesized circuit:
+    
+    ```
+    show
+    ```
+    
+
+## Example 3: `incomp_case.v`
+
+### Steps
+
+1. Open the files using gvim split view:
+    
+    ```bash
+    cd verilog_files
+    gvim *incomp_case* -o
+    ```
+    
+2. Run simulation with **iverilog** and testbench:
+    
+    ```bash
+    iverilog incomp_case.v tb_incomp_case.v
+    ./a.out
+    ```
+    
+3. View waveform with **GTKWave**:
+    
+    ```bash
+    gtkwave tb_incomp_case.vcd
+    ```
+    
+4. Open **yosys** for synthesis:
+    
+    ```bash
+    yosys
+    ```
+    
+5. Inside yosys, read design file:
+    
+    ```
+    read_verilog incomp_case.v
+    ```
+    
+6. Load standard cell library:
+    
+    ```
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+7. Run synthesis:
+    
+    ```
+    synth -top incomp_case
+    ```
+    
+8. Run ABC technology mapping:
+    
+    ```
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+9. Visualize synthesized circuit:
+    
+    ```
+    show
+    ```
+    
+
+## Example 4: `comp_case.v`
+
+### Steps
+
+1. Open the files using gvim split view:
+    
+    ```bash
+    cd verilog_files
+    gvim *comp* -o
+    ```
+    
+2. Run simulation with **iverilog** and testbench:
+    
+    ```bash
+    iverilog comp_case.v tb_comp_case.v
+    ./a.out
+    ```
+    
+3. View waveform with **GTKWave**:
+    
+    ```bash
+    gtkwave tb_comp_case.vcd
+    ```
+    
+4. Open **yosys** for synthesis:
+    
+    ```bash
+    yosys
+    ```
+    
+5. Inside yosys, read design file:
+    
+    ```
+    read_verilog comp_case.v
+    ```
+    
+6. Load standard cell library:
+    
+    ```
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+7. Run synthesis:
+    
+    ```
+    synth -top comp_case
+    ```
+    
+8. Run ABC technology mapping:
+    
+    ```
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+9. Visualize synthesized circuit:
+    
+    ```
+    show
+    ```
+    
+
+## Example 5: `bad_case.v`
+
+### Steps
+
+1. Open the files using gvim split view:
+    
+    ```bash
+    cd verilog_files
+    gvim *bad_case* -o
+    ```
+    
+2. Run simulation with **iverilog** and testbench:
+    
+    ```bash
+    iverilog bad_case.v tb_bad_case.v
+    ./a.out
+    ```
+    
+3. View waveform with **GTKWave**:
+    
+    ```bash
+    gtkwave tb_bad_case.vcd
+    ```
+    
+4. Open **yosys** for synthesis:
+    
+    ```bash
+    yosys
+    ```
+    
+5. Inside yosys, read design file:
+    
+    ```
+    read_verilog bad_case.v
+    ```
+    
+6. Load standard cell library:
+    
+    ```
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+7. Run synthesis:
+    
+    ```
+    synth -top bad_case
+    ```
+    
+8. Run ABC technology mapping:
+    
+    ```
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    ```
+    
+9. Visualize synthesized circuit:
+    
+    ```
+    show
+    ```
+    
+10. Write synthesized netlist to Verilog:
+    
+    ```
+    write_verilog -noattr bad_case_net.v
+    ```
+    
+11. Compile synthesized netlist with primitives and standard cell models:
+    
+    ```bash
+    iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_case_net.v tb_bad_case.v
+    ./a.out
+    ```
+    
+12. View waveform of synthesized netlist:
+    
+    ```bash
+    gtkwave tb_bad_case.vcd
+    ```
+    
+
+# Synthesis & Verilog Coding Styles: Loop Constructs
+
+This section covers **for loops** and **generate for loops**, their usage in Verilog, and differences in synthesis.
 
 ---
 
-## 4️⃣ DEMUX & Multiplexers
+## 1. For Loop
 
-**1:8 DEMUX Using Case:**
+- **Location:** Inside `always` blocks.
+- **Purpose:** Used to evaluate expressions during simulation or sequential/ combinational logic execution.
+- **Characteristics:**
+    - Evaluates block expressions.
+    - Does not create multiple hardware instances by itself.
+    - Example usage: Mux, Demux logic, or iterative calculations inside a block.
 
-```verilog
-always @(*) begin
-    case(sel)
-        3'b000: o0 = i; 3'b001: o1 = i;
-        3'b010: o2 = i; 3'b011: o3 = i;
-        3'b100: o4 = i; 3'b101: o5 = i;
-        3'b110: o6 = i; 3'b111: o7 = i;
-        default: {o7,o6,o5,o4,o3,o2,o1,o0} = 8'b0;
-    endcase
-end
+**Key Points:**
 
-```
-
-**1:8 DEMUX Using For Loop:**
-
-```verilog
-integer k;
-always @(*) begin
-    for(k=0; k<8; k=k+1)
-        out[k] = (sel==k) ? i : 1'b0;
-end
-
-```
-
-✅ Both synthesize into the same hardware; for loops are **cleaner and scalable**.
+- Evaluates expressions sequentially during simulation.
+- Hardware replication depends on synthesis tool optimization.
+- Typically used inside `always` blocks.
 
 ---
 
-## 5️⃣ Ripple Carry Adder (RCA) Using Generate Block
+## 2. Generate For Loop
 
-```verilog
-module rca (input [7:0] num1, num2, output [8:0] sum);
-    wire [7:0] int_sum, int_co;
-    genvar i;
-    generate
-        for (i=1; i<8; i=i+1) begin
-            fa u_fa (.a(num1[i]), .b(num2[i]), .c(int_co[i-1]), .co(int_co[i]), .sum(int_sum[i]));
-        end
-    endgenerate
-    fa u_fa0 (.a(num1[0]), .b(num2[0]), .c(1'b0), .co(int_co[0]), .sum(int_sum[0]));
-    assign sum[7:0] = int_sum;
-    assign sum[8] = int_co[7];
-endmodule
+- **Location:** Outside `always` blocks.
+- **Purpose:** Used for **hardware instantiation** and replicating modules or hardware structures.
+- **Characteristics:**
+    - Generates multiple instances of hardware during compilation/synthesis.
+    - Cannot be used inside an `always` block.
+    - Example usage: Ripple Carry Adder (RCA), repeated logic blocks.
 
-module fa(input a,b,c, output co,sum);
-    assign {co,sum} = a+b+c;
-endmodule
+**Key Points:**
 
-```
-
-✅ **Advantages:** Scalable, cleaner code, accurate hardware representation.
+- Generates multiple hardware blocks (parallel replication).
+- Must be outside `always` block.
+- Used to instantiate repetitive structures efficiently.
 
 ---
 
-## 6️⃣ Labs & Simulation Flow
+## 3. Differences Between For Loop and Generate For Loop
 
-1. **Compile RTL with Testbench:**
+| Feature | For Loop | Generate For Loop |
+| --- | --- | --- |
+| Location | Inside `always` blocks | Outside `always` blocks |
+| Purpose | Evaluate expressions | Instantiate/replicate HW |
+| Execution | Sequential at runtime | Static at compile time |
+| Hardware Instantiation | Not guaranteed | Always generates hardware |
+| Typical Use Case | Mux, Demux, counters | RCA, repeated modules |
 
-```bash
-iverilog <design>.v tb_<design>.v
+**Summary:**
 
-```
-
-1. **Run Simulation:**
-
-```bash
-./a.out
-
-```
-
-1. **View Waveform:**
-
-```bash
-gtkwave <design>.vcd
-
-```
-
-1. **Synthesize with Yosys:**
-
-```
-yosys
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog <design>.v
-synth -top <design>
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-write_verilog -noattr <design>_net.v
-show
-
-```
-
-1. **GLS Simulation:**
-
-```bash
-iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v <design>_net.v tb_<design>.v
-./a.out
-gtkwave tb_<design>.vcd
-
-```
+- Use `for` loops for expression evaluation inside blocks.
+- Use `generate for` loops for instantiating hardware structures.
+- Do not mix generate loops inside `always` blocks.
 
 ---
 
-## 7️⃣ Key Takeaways
+## Lab 2: Using Generate For Loop Construct
 
-- ✅ Always provide **complete if-else or case statements**.
-- ✅ Avoid **overlapping cases** to prevent unstable outputs.
-- ✅ Use **for loops inside always** for evaluation, **for-generate** for replication.
-- ✅ GLS ensures **RTL behavior matches synthesized netlist**.
-- ✅ Clean, modular, scalable RTL is easier to debug, simulate, and synthesize.
+This lab demonstrates **hardware replication** using `generate for` loops with examples of MUX, DEMUX, and RCA (Ripple Carry Adder) using full adder module `fa.v`.
+
+Lab 2a: MUX Using Generate For Loop
+
+**Design File:** `mux_generate.v`
+
+### Steps
+
+1. Open the file:
+    
+    ```bash
+    cd verilog_files
+    gvim mux_generate.v tb_mux_generate.v -o
+    ```
+    
+2. Compile and simulate:
+    
+    ```bash
+    iverilog mux_generate.v tb_mux_generate.v
+    ./a.out
+    ```
+    
+3. View waveform:
+    
+    ```bash
+    gtkwave tb_mux_generate.vcd
+    ```
+    
+4. Synthesize in Yosys:
+    
+    ```
+    read_verilog mux_generate.v
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    synth -top mux_generate
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    show
+    ```
+    
+
+---
+
+## Lab 2b: DEMUX Using Generate For Loop
+
+**Design File:** `demux_generate.v`
+
+### Steps
+
+1. Open the file:
+    
+    ```bash
+    cd verilog_files
+    gvim demux_generate.v tb_demux_generate.v -o
+    ```
+    
+2. Compile and simulate:
+    
+    ```bash
+    iverilog demux_generate.v tb_demux_generate.v
+    ./a.out
+    ```
+    
+3. View waveform:
+    
+    ```bash
+    gtkwave tb_demux_generate.vcd
+    ```
+    
+4. Synthesize in Yosys:
+    
+    ```
+    read_verilog demux_generate.v
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    synth -top demux_generate
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    show
+    ```
+    
+
+---
+
+## Lab 2c: RCA Using Generate For Loop
+
+**Design Files:** `rca.v`, `fa.v`
+
+### Steps
+
+1. Open the files:
+    
+    ```bash
+    cd verilog_files
+    gvim rca.v fa.v tb_rca.v -o
+    ```
+    
+2. Compile and simulate:
+    
+    ```bash
+    iverilog fa.v rca.v tb_rca.v
+    ./a.out
+    ```
+    
+3. View waveform:
+    
+    ```bash
+    gtkwave tb_rca.vcd
+    ```
+    
+4. Synthesize in Yosys:
+    
+    ```
+    read_verilog fa.v rca.v 
+    read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    synth -top rca
+    abc -liberty ./my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+    show
+    ```
+## Summary Notes
+
+- Always write synthesizable and complete combinational logic to avoid inferred latches.
+- Use `generate for` loops for hardware replication; never inside `always` blocks.
+- Carefully check `if` and `case` coverage to ensure deterministic outputs.
+- Follow a consistent synthesis flow for simulation, synthesis, and visualization.
+
+This concludes **Day 5 - Optimisation in Synthesis**, covering **inferred latches**, **coding styles**, **loop constructs**, and **hardware replication techniques**.
