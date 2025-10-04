@@ -2,14 +2,14 @@
 
 **This week covers SoC fundamentals and hands-on functional modelling using the VSDBabySoC model:**
 
-### Task 1 – Theory (Conceptual Understanding)
+### **[Task 1](https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%202/Task1.md)** – Theory (Conceptual Understanding)
 
 - Understand **what a System-on-Chip (SoC) is**.
 - Study the **key components**: CPU, memory, peripherals, and interconnect.
 - Learn about the **RVMYTH processor core** and its role.
 - Explore the **purpose of functional modelling** before RTL and physical design.
 
-### Task 2 – Labs (Hands-on Functional Modelling)
+### **[Task 2](https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%202/Task2.md)** – Labs (Hands-on Functional Modelling)
 
 - Clone the **VSDBabySoC project repository**.
 - Compile the BabySoC **Verilog modules**.
