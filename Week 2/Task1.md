@@ -51,6 +51,8 @@ SoCs are used in **smartphones, tablets, IoT modules, edge devices, and embedded
 
 ### Architecture Highlights
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%202/Images/vsdbabysoc_block_diagram.png" width="600"/>
+
 - **RVMYTH CPU Core** – executes instructions and simple programs
 - **Phase-Locked Loop (PLL)** – stable, high-frequency system clock
 - **10-bit DAC** – digital-to-analog conversion for external devices (e.g., speakers, displays)
