@@ -185,7 +185,7 @@ $ sudo make install
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+  <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200/ngspice_installed.png" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">✅ Ngspice Successfully Installed</div>
@@ -208,7 +208,7 @@ $ sudo make install
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+  <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200/magic_installed.png" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">✅ Magic Successfully Installed</div>
@@ -242,15 +242,22 @@ sudo apt install docker-ce docker-ce-cli containerd.io
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo reboot
+```
+### 📷 Installation Image 
 
-#After Reboot Verification
+<div align="center">
+  <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200/openlane-docker_setup-01.png" alt="Tool snapshot" width="600"/>
+</div>
 
+### **After Reboot Verification**
+
+```bash
 docker run hello-world
 ```
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+  <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200/openlane-docker_setup-02.png" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">
@@ -270,7 +277,7 @@ python3 -m venv -h
 ### 📷 Installation Image 
 
 <div align="center">
-  <img src="path/to/your/image.png" alt="Tool snapshot" width="600"/>
+  <img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week%200/openlane-version.png" alt="Tool snapshot" width="600"/>
 </div>
 
 <div align="center">
