@@ -1,4 +1,4 @@
-# Day 2: MOSFET Characteristics and CMOS Voltage Transfer Analysis
+# Day 2 - MOSFET Characteristics and CMOS Voltage Transfer Analysis
 
 ## ⚙️ Two Channel Variations
 
