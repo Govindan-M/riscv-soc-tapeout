@@ -9,6 +9,8 @@
 - Logic gates like **AND, OR, NOT, NAND, NOR, XOR** are building blocks.
 - An **inverter** (NOT gate) is a key CMOS circuit combining NMOS and PMOS transistors.
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/01.jpeg" width="600"/>
+
 ## 🧪 SPICE Simulations
 
 **SPICE (Simulation Program with Integrated Circuit Emphasis)** is used to simulate electrical behavior before fabrication.
@@ -18,6 +20,8 @@
 - Measure **delay**, **power**, and **voltage transfer** characteristics.
 - Analyze **noise margins** and **device behavior**.
 - Verify design before layout and manufacturing.
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/02.jpeg" width="600"/>
 
 ## ⏱️ Delay & Power Models
 
@@ -38,6 +42,8 @@
 An **NMOS transistor** is a four-terminal device that operates with **electrons** as charge carriers.
 
 It’s fabricated on a **p-type substrate** with **two n⁺ diffusion regions** serving as **Source (S)** and **Drain (D)**.
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/03.jpeg" width="600"/>
 
 ### 🧩 Step-by-Step Fabrication Process
 
@@ -103,6 +109,8 @@ VGS<Vth ⇒ NMOS is OFF
 
 When a voltage is applied to the gate, the **electric field** through the oxide affects the **substrate charge distribution**. The behavior of the NMOS depends on the magnitude of Vgs.
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/04.jpeg" width="600"/>
+
 ---
 
 ### 1️⃣ Vgs = 0 V
@@ -115,6 +123,8 @@ When a voltage is applied to the gate, the **electric field** through the oxide 
 
 ### 2️⃣ Small Positive Vgs (Accumulation)
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/07.jpeg" width="600"/>
+
 - Gate becomes slightly **positive**.
 - Holes are **repelled** from the oxide interface.
 - Positive ions remain, forming a **depletion region**.
@@ -124,6 +134,8 @@ When a voltage is applied to the gate, the **electric field** through the oxide 
 
 ### 3️⃣ Moderate Vgs (Depletion Region Increases)
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/05.jpeg" width="600"/>
+
 - Depletion width **increases** as the electric field strengthens.
 - The substrate surface potential becomes more **negative**.
 - **Still no conduction** between Source and Drain.
@@ -131,6 +143,8 @@ When a voltage is applied to the gate, the **electric field** through the oxide 
 ---
 
 ### 4️⃣ Higher Vgs → Channel Formation (Strong Inversion)
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/06.jpeg" width="600"/>
 
 - The semiconductor surface **inverts to n-type material**, forming a conductive channel.
 - This phenomenon is called **“strong inversion”**.
@@ -165,6 +179,8 @@ When the gate-to-source voltage is increased further, it influences the **thresh
 # ⚡ Two Scenarios: Effect of Source-Body Bias (Vsb)
 
 The **threshold voltage** and channel formation of an NMOS are influenced by the **source-to-body voltage (Vsb)**. There are **two key scenarios**:
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/08.jpeg" width="600"/>
 
 ---
 
@@ -256,6 +272,8 @@ Where:
 
 ## 2️⃣ Drain Current Derivation
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/09.jpeg" width="600"/>
+
 The **drain current** is primarily due to **drift current**, with a small contribution from **diffusion current**:
 
 ID=μnWQi(x)dV(x)dxI_D = \mu_n W Q_i(x) \frac{dV(x)}{dx}
@@ -334,6 +352,8 @@ Where:
 
 ## 6️⃣ Pinch-Off & Saturation
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/10.jpeg" width="600"/>
+
 - When VDS=Vgs−VtV_{DS} = Vgs - VtVDS=Vgs−Vt, the channel near the **drain is pinched off**.
 - Further increase in VDSV_{DS}VDS does **not affect the channel charge near the source**, so the current **saturates**.
 
@@ -344,6 +364,8 @@ Where:
 - **Vgs** = 1 V, 1.5 V, 2 V …
 - **VDS** = 0 → 2 V sweep
 - Observe the **linear → saturation transition** in the output characteristics.
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/11.jpeg" width="600"/>
 
 # Introduction to SPICE
 
@@ -363,6 +385,8 @@ Key features:
 
 A typical SPICE workflow involves:
 
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/12.jpeg" width="600"/>
+
 1. **Define the circuit**: Create a schematic or netlist with nodes, elements, and connections.
 2. **Select devices**: Include MOSFETs, BJTs, resistors, capacitors, etc.
 3. **Assign models**: Specify **technology parameters** for each device using **model files**.
@@ -372,6 +396,8 @@ A typical SPICE workflow involves:
 ---
 
 ## 3️⃣ Five Important Formulas Used in SPICE
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/15.jpeg" width="600"/>
 
 1. **Threshold Voltage** (including body effect)
 
@@ -430,6 +456,10 @@ These parameters are defined in a **technology file** or **model file** associat
 ---
 
 ## 5️⃣ Technology File & Netlist Description
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/13.jpeg" width="600"/>
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/14.jpeg" width="600"/>
 
 ### ***NETLIST Description***
 
@@ -499,7 +529,6 @@ Vin in 0 2.5
 - **.LIB** → SPICE directive to include a **library of models**.
 - `"xxxx 025um model.mod"` → Filename containing NMOS/PMOS models for a **0.25 µm CMOS technology**.
 - **CMOS MODELS** → Comment describing the content of the library.
-
 # NGSPICE Simulation: NMOS IV Characteristics
 
 ### **Step 1: Open Terminal**
@@ -531,9 +560,9 @@ git clone https://github.com/kunalg123/sky130CircuitDesignWorkshop.git
 ### **Step 4: Enter Design Directory**
 
 ```bash
-cd sky130CircuitDesignWorkshop/Design/
+cd sky130CircuitDesignWorkshop/design/
 ls
-cd sky130_pd_pr/
+cd sky130_fd_pr/
 ```
 
 - Lists the contents and navigates to the **physical design project folder**.
@@ -582,6 +611,7 @@ less sky130.lib.spice
 ```bash
 vim day1_nfet_idvds_L025_W065.spice
 ```
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/16.png" width="600"/>
 
 - Here you can **define the NMOS instance, nodes, and simulation commands**.
 
@@ -602,8 +632,10 @@ ngspice
 In NGSPICE terminal:
 
 ```
-source day1_nfet_idvds_L025_W065.spice
+ngspice day1_nfet_idvds_L2_W5.spice
 ```
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/17.png" width="600"/>
 
 - Loads your netlist for simulation.
 
@@ -612,8 +644,10 @@ source day1_nfet_idvds_L025_W065.spice
 ### **Step 10: Plot IV Characteristics**
 
 ```
--> plot -vdd#branch
+plot -vdd#branch
 ```
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/18.png" width="600"/>
 
 - Plots the **drain current vs. drain voltage**.
 - The `#branch` shows the current through the voltage source Vdd (typical way to observe ID).
@@ -623,6 +657,9 @@ source day1_nfet_idvds_L025_W065.spice
 ### **Step 11: Analyze Waveforms**
 
 - Observe **linear region, saturation region, and pinch-off** behavior.
+
+<img src="https://github.com/Govindan-M/riscv-soc-tapeout/blob/main/Week4/Day%201/Images/19.png" width="600"/>
+
 - Compare the effects of **different W/L, corners, and model parameters** on NMOS IV curves.
 
 ---
