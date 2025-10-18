@@ -8,13 +8,13 @@ This week focuses on NMOS operation, CMOS inverter behavior, SPICE simulations, 
 
 ## 👉 Day-wise Overview
 
-**Day 1: NgspiceSky 130 – Basics of NMOS Drain Current (Id) vs Drain-to-Source Voltage (Vds)**
+**[Day 1](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%201): NgspiceSky 130 – Basics of NMOS Drain Current (Id) vs Drain-to-Source Voltage (Vds)**
 
 - Introduction to Circuit Design and SPICE simulations
 - NMOS resistive region and saturation region of operation
 - Understanding drain current derivation and channel charge concepts
 
-**Day 2: NgspiceSky 130 – Velocity Saturation and Basics of CMOS Inverter VTC**
+**[Day 2](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%202): NgspiceSky 130 – Velocity Saturation and Basics of CMOS Inverter VTC**
 
 - SPICE simulation for lower nodes and velocity saturation effect
 - CMOS voltage transfer characteristics (VTC)
@@ -54,10 +54,10 @@ This repository serves as the **official Week 4 submission** for the Digital VLS
 
 ## 🔗 Links
 
-- **Day 1:** Link
-- **Day 2:** Link
-- **Day 3:** Link
-- **Day 4:** Link
-- **Day 5:** Link
+- **Day 1:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%201)
+- **Day 2:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%202)
+- **Day 3:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%202)
+- **Day 4:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%202)
+- **Day 5:** [Link](https://github.com/Govindan-M/riscv-soc-tapeout/tree/main/Week4/Day%202)
 
 ✅ Screenshots, reports, SPICE netlists, and analysis results are **updated and verified** in the `Week4/images` folder 📂
